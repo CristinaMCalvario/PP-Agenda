@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     
     <script src="https://kit.fontawesome.com/b21fa3e45a.js" crossorigin="anonymous"></script>
 
@@ -45,6 +44,11 @@
       #calendar {
         max-width: 900px;
         margin: 0 auto;
+      }
+      #agregar{
+        background-color: #e62b29;
+        color: white;
+        margin: 1px;
       }
     </style>
 
@@ -97,8 +101,26 @@
                 </div>
             </nav>
              <div class="container-fluid">
-              <h1 class="text-center " style="margin: 10px;">Agenda Vehículo Utilitario </h1>
-              <div id="calendar"></div>
+              <h1 class="text-center">Evidencia de Vehículo Utilitario</h1>
+              <div>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Título</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+                      <td><button class="btn" id="agregar" onclick="formEvidencia()">Agregar</button></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+                      <td><button class="btn" id="agregar">Agregar</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
              </div>
         </div>
     </div>
@@ -131,46 +153,16 @@
             el.classList.toggle("toggled");
         };
     </script>
-   evento/modal/modalAgregarSala.php
+     <?php include ('../evento/modal/modalEvidenciaAuto.php'); ?>
     <script>
-      $('.clockpicker').clockpicker();
-        
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          customButtons: {
-            myButton: {
-              text: 'Solicitar Vehículo',
-              click: function() {
-                
-                $("#formEventos").modal('show');
-                
-              }
-            }
-          },
-          headerToolbar: {
-                left: 'prev,next today myButton',
-                center: "title",
-                right: "dayGridMonth,timeGridWeek,timeGridDay"
-            },
-            
-          locale: 'es',
+      let form = document.getElementById("agregar");
+      form.onclick = agregarEvidencia;
+        function agregarEvidencia() {
+          $("#formEventos").modal('show');
 
-            defaultView: "month",
-            navLinks: true, 
-            editable: true,
-            eventLimit: true, 
-            selectable: true,
-            selectHelper: false,
-            dateClick: function(){
-            
-                $("#formEventos").modal('show');
-            }
-        });
-        calendar.render();
-      });
+        }
+     
 
     </script>
-    
 </body>
 </html>
