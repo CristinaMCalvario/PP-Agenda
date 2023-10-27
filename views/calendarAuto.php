@@ -97,7 +97,7 @@
                 </div>
             </nav>
              <div class="container-fluid">
-              <h1 class="text-center">Agenda Sala de Juntas</h1>
+              <h1 class="text-center " style="margin: 10px;">Agenda Vehículo Utilitario </h1>
               <div id="calendar"></div>
              </div>
         </div>
@@ -131,7 +131,7 @@
             el.classList.toggle("toggled");
         };
     </script>
-    <?php include ('../evento/modal/modalAgregarSala.php'); ?>
+    <?php include ('../evento/modal/modalAgregarAuto.php'); ?>
     <script>
       $('.clockpicker').clockpicker();
         
@@ -140,7 +140,7 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
           customButtons: {
             myButton: {
-              text: 'Solicitar Sala de Juntas',
+              text: 'Solicitar Vehículo',
               click: function() {
                 
                 $("#formEventos").modal('show');
