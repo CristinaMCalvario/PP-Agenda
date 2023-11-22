@@ -14,36 +14,18 @@
 
     <!--CSS OWN-->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/cdn.datatables.net_v_dt_dt-1.13.6_datatables.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-clockpicker.css">
-    <link rel="stylesheet" href="../fullcalendar/main.css">
+    
 
     <!--JS -->
     <script src="../js/code.jquery.com_jquery-3.7.1.min.js"></script>
     <script src="../js/unpkg.com_@popperjs_core@2.11.8_dist_umd_popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/cdn.datatables.net_v_dt_dt-1.13.6_datatables.min.js"></script>
-    <script src="../js/bootstrap-clockpicker.js"></script>
-    <script src="../js/momentjs.com_downloads_moment-with-locales.js"></script>
-    <script src="../fullcalendar/main.js"></script>
-    <script src="../locales/es.js"></script>
 
     <!--STYLOS-->
     <style>
-      .btns{
-        display: flex;
-        justify-content: center;
-        margin: 20px;
-      }
-      .btns button{
+      .btn{
         background-color: #e62b29;
         color: white;
-        margin: 15px;
-      }
-      #calendar {
-        max-width: 900px;
-        margin: 0 auto;
+        margin: 1px;
       }
     </style>
 
@@ -52,12 +34,12 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class=""  id="sidebar-wrapper">
-            <div class="sidebar-nav text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../img/logoGL2.png" width="100"></div>
+            <div class="sidebar-nav text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Sala de Juntas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Vehículo Utilitario</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Notificaciones</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Registro Usuarios</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Solicitudes Sala de Juntas</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Solicitudes Vehículo Utilitario</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Evidencia de Vehículo</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
@@ -71,7 +53,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Agenda</h2>
+                    <h2 class="fs-2 m-0">Agenda ADMIN</h2>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -96,48 +78,27 @@
                 </div>
             </nav>
              <div class="container-fluid">
-              <h2 class="text-center">Notificaciones de Sala de Juntas</h2>
-              <div>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">Título</th>
-                      <th scope="col">Estado</th>
-                    </tr>
-                  </thead>
+              <div id="calendar"></div>
+                <h3 class="fs-4 mb-3 text-center">Solicitudes de Sala de Juntas</h3>
+                <div class="col">
+                  <table class="table table-striped">
                   <tbody>
                     <tr>
-                      <td scope="row">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                      <td><p>Aceptado</p></td>
+                      <td scope="row">Lorem ipsum dolor sit, amet consectetur.</td>
+                      <td><button class="btn" id="agregar" onclick="verRegistro()"><i class="fa-solid fa-eye" style="color: #555259;"></i></button></td>
+                      <td><i class="fa-solid fa-trash-can" style="color: #555259;"></i></td>
+                      <td><button class="btn">Aceptar</button></td>
+                      
                     </tr>
                     <tr>
-                      <td scope="row">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                      <td><p>Aceptado</p></td>
+                      <td scope="row">Lorem ipsum, dolor sit amet.</td>
+                      <td><i class="fa-solid fa-eye" style="color: #555259;"></i></td>
+                      <td><i class="fa-solid fa-trash-can" style="color: #555259;"></i></td>
+                      <td><i class="fa-solid fa-check" style="color: #25f813;"> Aceptado</i></td>
                     </tr>
                   </tbody>
-                </table>
-              </div>
-              <h2 class="text-center">Notificaciones del Vehículo Utilitario</h2>
-              <div>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">Título</th>
-                      <th scope="col">Estado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td scope="row">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                      <td><p>Aceptado</p></td>
-                    </tr>
-                    <tr>
-                      <td scope="row">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                      <td><p>Rechazado</p></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                </table>                        
+                </div>
              </div>
         </div>
     </div>
@@ -161,7 +122,7 @@
       <div class="derechos-de-autor">GRUPO LOGÍSTICO (2023) &#169;</div>
     </footer>
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></>-->
     <script>
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");
@@ -170,10 +131,14 @@
             el.classList.toggle("toggled");
         };
     </script>
-     
+    <?php include ('../evento/modal/modalSala.php'); ?>
     <script>
-      
-     
+        let form = document.getElementById("agregar");
+      form.onclick = verRegistro;
+        function verRegistro() {
+          $("#RegistroUser").modal('show');
+
+        }
 
     </script>
 </body>
