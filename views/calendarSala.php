@@ -50,6 +50,15 @@
 
 </head>
 <body>
+
+<?php
+include('conexion.php');
+
+  $SqlEventos   = ("SELECT * FROM solicitudsalajuntas");
+  $resulEventos = mysqli_query($con, $SqlEventos);
+
+?>
+
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class=""  id="sidebar-wrapper">
@@ -132,8 +141,8 @@
         };
     </script>
     <?php include ('../evento/modal/modalAgregarSala.php'); ?>
+    <?php include ('../evento/modal/modalSala.php'); ?>
     <script>
-      $('.clockpicker').clockpicker();
         
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -163,9 +172,41 @@
             selectable: true,
             selectHelper: false,
             dateClick: function(){
-            
-                $("#formEventos").modal('show');
+              $("#formEventos").modal('show');
+            },
+           
+              events: [
+                <?php
+                  while($dataEvento = mysqli_fetch_array($resulEventos)){ ?>
+                      {
+                      title: '<?php echo $dataEvento['titulo']; ?>',
+                      start: '<?php echo $dataEvento['fechainicio']; ?>',
+                      end:   '<?php echo $dataEvento['fechafin']; ?>',
+                      extendedProps: {
+                        juntasera: '<?php echo $dataEvento['juntasera']; ?>',
+                        participantesInternos: '<?php echo $dataEvento['participantesInternos']; ?>',
+                        participantesExternos: '<?php echo $dataEvento['participantesExternos']; ?>',
+                        description: '<?php echo $dataEvento['descripcion']; ?>',
+                        usaras : '<?php echo $dataEvento['usaras']; ?>'
+                        }
+                      },
+                    <?php } ?>
+            ],
+
+            eventClick: function(info){
+              $('#title').html(info.event.title);
+              $('#start').html(info.event.start);
+              $('#end').html(info.event.end);
+              $('#sera').html(info.event.extendedProps.juntasera);
+              $('#partinternos').html(info.event.extendedProps.participantesInternos);
+              $('#partexternos').html(info.event.extendedProps.participantesExternos);
+              $('#desc').html(info.event.extendedProps.description);
+              $('#usara').html(info.event.extendedProps.usaras);
+
+              $("#mostrarInfo").modal('show');
+
             }
+            
         });
         calendar.render();
       });

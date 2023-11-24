@@ -36,9 +36,9 @@
         <div class=""  id="sidebar-wrapper">
             <div class="sidebar-nav text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">Dashboard</a>
+                <a href="admin/dashboardAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text active">Dashboard</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Registro Usuarios</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Solicitudes Sala de Juntas</a>
+                <a href="solicitudSalaJuntas.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Solicitudes Sala de Juntas</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Solicitudes Vehículo Utilitario</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Evidencia de Vehículo</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i

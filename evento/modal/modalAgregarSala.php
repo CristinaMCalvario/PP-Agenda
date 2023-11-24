@@ -34,39 +34,17 @@
           <div class="mb-3 row">
             <label for="" class="col-sm-4 col-form-label">Fecha de inicio:</label>
             <div class="col-sm-8">
-              <input type="date" class="form-control" id="fechaInicio">
+              <input type="datetime-local" class="form-control" id="fechaInicio">
             </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="" class="col-sm-4 col-form-label">Hora de inicio:</label>
-            <div class="col-sm-8">
-              <div class="input-group clockpicker" data-autoclose="true">
-                <input type="text" class="form-control" id="horaInicio" placeholder="13:00">
-                 <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                 </span>
-                <!--<span class="input-group-addon">-->
-              </div>
-              
-            </div>
+
           </div>
           <div class="mb-3 row">
             <label for="" class="col-sm-4 col-form-label">Fecha de fin:</label>
             <div class="col-sm-8">
-              <input type="date" class="form-control" id="fechaFin">
+              <input type="datetime-local" class="form-control" id="fechaFin">
             </div>
           </div>
-          <div class="mb-3 row">
-            <label for="" class="col-sm-4 col-form-label">Hora de fin:</label>
-            <div class="col-sm-8">
-              <div class="input-group clockpicker" data-autoclose="true">
-                <input type="text" class="form-control" id="horaFin" placeholder="14:00">
-                 <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                 </span>
-                <!--<span class="input-group-addon">-->
-              </div>
-          </div>
+          
           <div class="mb-3">
             <label for="" class="form-label">La junta será:</label>
             <div class="form-check form-check-inline">

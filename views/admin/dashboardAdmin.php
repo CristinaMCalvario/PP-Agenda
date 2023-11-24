@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
+	print "<script>alert(\"Acceso invalido!\");window.location='loginAdmin.php';</script>";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,11 +44,11 @@
             <div class="sidebar-nav text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Sala de Juntas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Vehículo Utilitario</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Notificaciones</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Evidencia de Vehículo</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                <a href="../registroUser.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Registro de usuarios</a>
+                <a href="../solicitudSalaJuntas.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Solicitudes Sala de Juntas</a>
+                <a href="../solicitudVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Solicitudes Vehículo Utilitario</a>
+                <a href="../evidenciaVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Evidencia de Vehículo</a>
+                <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
             </div>
         </div>

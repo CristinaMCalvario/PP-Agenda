@@ -16,45 +16,39 @@
     letter-spacing: 2px;
   }
 </style>
-<div class="modal fade" id="RegistroUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="mostrarInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Solicitud de Sala de Juntas</h5>
+        <h5 class="modal-title" id="title"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        
         <div class="mb-3">
-          <b class="tagUser">Título:</b> <p class="datoUser"></p>
+          <b class="tagUser">Fecha inicio:</b> <p id="start" class="datoUser"></p>
+        </div>
+        
+        <div class="mb-3">
+          <b class="tagUser">Fecha fin:</b> <p id="end" class="datoUser"></p>
+        </div>
+        
+        <div class="mb-3">
+          <b class="tagUser">La junta será:</b> <p id="sera" class="datoUser"></p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Fecha inicio:</b> <p class="datoUser"></p>
+          <b class="tagUser">Nombres de participantes internos:</b> <p id="partinternos" class="datoUser"></p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Hora inicio:</b> <p class="datoUser"></p>
+          <b class="tagUser">Nombres de participantes externos:</b> <p id="partexternos" class="datoUser"></p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Fecha fin:</b> <p class="datoUser"></p>
+          <b class="tagUser">Descripción:</b> <p id="desc" class="datoUser"></p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Hora fin:</b> <p class="datoUser"></p>
-        </div>
-        <div class="mb-3">
-          <b class="tagUser">La junta será:</b> <p class="datoUser"></p>
-        </div>
-        <div class="mb-3">
-          <b class="tagUser">Nombres de participantes internos:</b> <p class="datoUser"></p>
-        </div>
-        <div class="mb-3">
-          <b class="tagUser">Nombres de participantes externos:</b> <p class="datoUser"></p>
-        </div>
-        <div class="mb-3">
-          <b class="tagUser">Descripción:</b> <p class="datoUser"></p>
-        </div>
-        <div class="mb-3">
-          <b class="tagUser">Usarás:</b> <p class="datoUser"></p>
+          <b class="tagUser">Usarás:</b> <p id="usara" class="datoUser"></p>
         </div>
       </div>
 

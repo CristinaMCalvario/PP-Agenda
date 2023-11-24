@@ -33,17 +33,17 @@
     <main>
         <section class="container">
             <div class="form-login seccion-oscura">
-                <form action="">
+                <form method="post" action="loginAdminS.php">
                     <fieldset>
                         <legend class="text-center">Iniciar Sesión</legend>
                         <h3 class="text-center"><b>ADMIN</b></h3>
                         <div class="mb-3">
                             <label for="usuario" class="form-label">Usuario:</label>
-                            <input type="text" name="uname" id="usuario" class="form-control">
+                            <input type="text" name="uname" id="uname" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Contraseña:</label>
-                            <input type="password" name="passcampo" id="password" class="form-control">
+                            <input type="password" name="passcampo" id="passcampo" class="form-control">
                         </div>
                         <div class="mb-3 text-center">
                             <input type="submit" value="Iniciar Sesión" class="btn">
