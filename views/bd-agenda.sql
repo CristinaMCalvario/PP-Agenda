@@ -1,4 +1,3 @@
-
 /*CREATE TABLE `agendapp`.`solicitudsalajuntas` ( 
     `ID` INT(10) NOT NULL AUTO_INCREMENT , 
     `titulo` VARCHAR(100) NOT NULL , 
@@ -27,8 +26,8 @@ CREATE TABLE `agendapp`.`solicitudvehiculo` (
     `IDUser` INT(10) NOT NULL , 
     PRIMARY KEY (`ID`),
     FOREIGN KEY (`IDUser`) REFERENCES  usuario(ID)
-    );*/
-/*
+    );
+
 CREATE TABLE `agendapp`.`evidenciavehiculo` ( 
     `ID` INT(10) NOT NULL AUTO_INCREMENT , 
     `kilometrajeInicial` LONGBLOB NOT NULL , 
@@ -36,8 +35,8 @@ CREATE TABLE `agendapp`.`evidenciavehiculo` (
      `IDUser` INT(10) NOT NULL ,   
     PRIMARY KEY (`ID`),
     FOREIGN KEY (`IDUser`) REFERENCES  usuario(ID)
-    );
-*/
+    );*/
+
 /*CREATE TABLE `agendapp`.`eventoSalaJuntas` ( 
     `ID` INT(10) NOT NULL AUTO_INCREMENT , 
     `titulo` VARCHAR(300) NULL , 
@@ -59,3 +58,89 @@ CREATE TABLE `agendapp`.`evidenciavehiculo` (
     
     );*/
 
+/*CREATE TABLE `permisos` (
+  `id` int(11) NOT NULL,
+  `rol` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `permisos` (`id`, `rol`) VALUES
+(1, 'administrador'),
+(2, 'usuario'),
+(3, 'lector');*/
+
+
+/*CREATE TABLE `agendapp`.`usuario`( 
+    `ID` INT NOT NULL AUTO_INCREMENT , 
+    PRIMARY KEY (`ID`)
+) ENGINE = InnoDB;*/
+
+
+
+
+CREATE TABLE `permisos` (
+  `id` int(11) NOT NULL,
+  `rol` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `permisos`
+--
+
+INSERT INTO `permisos` (`id`, `rol`) VALUES
+(1, 'administrador'),
+(2, 'usuario'),
+(3, 'lector');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `nombre` VARCHAR(100) NOT NULL , 
+  `apellidos` VARCHAR(100) NOT NULL , 
+  `departamento` VARCHAR(100) NOT NULL , 
+  `cargo` VARCHAR(100) NOT NULL , 
+  `correo` VARCHAR(100) NOT NULL , 
+  `telefono` VARCHAR(100) NOT NULL , 
+  `username` VARCHAR(100) NOT NULL , 
+  `password` INT(10) NOT NULL,
+  `rol` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `user`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `permisos` (`rol`);
+
+--
+-- 
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `user`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `permisos` FOREIGN KEY (`rol`) REFERENCES `permisos` (`id`);
+COMMIT;

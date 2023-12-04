@@ -22,7 +22,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbar-toggler">
                 <a class="navbar-brand" href="#">
-                    <img src="/img/logoGL2.png" width="70" alt="Logo de la página web" height="40" >
+                    <img src="../img/logoGL2.png" width="70" alt="Logo de la página web" height="40" >
                     | Agenda
                 </a>
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
@@ -43,38 +43,30 @@
                         <legend class="text-center">Registro</legend>
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre (s): </label>
-                            <input type="text" name="ncampo" id="nombre" class="form-control">
+                            <input type="text" name="nombre" id="nombre" class="form-control">
                         </div>
                             <div class="mb-3">
                             <label for="apellidos" class="form-label">Apellidos:</label>
-                            <input type="text" name="acampo" id="apellidos" class="form-control">
+                            <input type="text" name="apellidos" id="apellidos" class="form-control">
                             </div>
                         <div class="mb-3">
                             <label for="departamento" class="form-label">Departamento:</label>
-                            <select class="form-select form-select-sm" id="departamento" name="dname">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                            <input type="text" name="departamento" id="departamento" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="cargo" class="form-label">Cargo:</label>
-                            <select class="form-select form-select-sm" id="cargo" name="carcampo">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                            <input type="text" name="cargo" id="cargo" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="correo" class="form-label">Correo electrónico:</label>
-                            <input type="email" name="ccampo" id="correo" class="form-control">
+                            <input type="email" name="correo" id="correo" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Teléfono:</label>
-                            <input type="tel" name="tcampo" id="telefono" class="form-control">
+                            <input type="tel" name="telefono" id="telefono" class="form-control">
                         </div>
                         <div class="mb-3 text-center">
-                            <input type="submit" value="Registrarme" class="btn btn-lg">
+                            <button onclick="verRegistro()" class="btn btn-lg" id="enviar">Registrarme</button>
                         </div>
                     </fieldset>
                 </form>
@@ -100,6 +92,16 @@
       <div class="derechos-de-autor">GRUPO LOGÍSTICO (2023) &#169;</div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <?php include ('../evento/modal/modalUserAceptar.php'); ?>
+    <script>
+        let form = document.getElementById("enviar");
+      form.onclick = verRegistro;
+        function verRegistro() {
+          $("#enviarInfo").modal('show');
+
+        }
+    </script>
     <script src="app.js">
 
     </script>

@@ -10,6 +10,11 @@
     <script src="https://kit.fontawesome.com/b21fa3e45a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/estilos.css" />
     <title>CGL | Agenda</title>
+
+    <style>
+        
+
+    </style>
 </head>
 
 <body>
@@ -18,8 +23,8 @@
         <div class="" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
-                <a href="registroUsuarios.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-regular fa-user"></i>Registro Usuarios</a>
+                <a href="dashboardAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i class="fa-regular fa-user"></i>Registro Usuarios</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-users-between-lines"></i></i> Solicitudes Sala de Juntas</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i>Solicitudes Vehículo Utilitario</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i>Evidencia de Vehículo</a>
@@ -64,11 +69,11 @@
             <div class="container-fluid px-4">
                 <div class="row g-3 my-2">
                     <div class="col-md-3">
-                        <a href="#" class="elementos">
+                        <a href="FormRegistroUsuarios.php" class="elementos">
                              <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <!--<h3 class="fs-2"></h3>-->
-                                <p class="fs-5"><b>Registro Usuarios</b></p>
+                                <p class="fs-5"><b>Form Registro Usuarios</b></p>
                             </div>
                             <i class="fa-solid fa-user fs-1" style="color: #555259;"></i>
                         </div>
@@ -76,50 +81,15 @@
                        
                     </div>
 
-                    <div class="col-md-3">
-                        <a href="#" class="elementos">
-                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <!---<h3 class="fs-2"></h3>-->
-                                <p class="fs-5"><b>Solicitudes Sala de Juntas</b></p>
-                            </div>
-                            <i class="fa-solid fa-users-between-lines fs-1" style="color: #555259;"></i></i>
-                            </div>
-                        </a>
-                        
-                    </div>
-
-                    <div class="col-md-3">
-                        <a href="#" class="elementos"> 
-                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <!--<h3 class="fs-2">3899</h3>-->
-                                <p class="fs-5"><b>Solicitudes Vehículo Utilitario</b></p>
-                            </div>
-                            <i class="fa-solid fa-car fs-1" style="color: #555259;"></i>
-                        </div>
-                        </a>
-                    </div>
                     
-                    <div class="col-md-3">
-                        <a href="#" class="elementos" >
-                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                               <!-- <h3 class="fs-2">%25</h3>-->
-                                <p class="fs-5"><b>Evidencia de Vehículo</b></p>
-                            </div>
-                            <i class="fa-solid fa-images fs-1" style="color: #555259;"></i>
-                        </div>
-                        </a>
-                        
-                    </div>
+
+                    
                 </div>
 
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Usuarios</h3>
-                    <div class="col">
-                        
-                    </div>
+                   
+                    
                 </div>
 
             </div>

@@ -1,4 +1,29 @@
+<?php
+$nombre = $_POST['nombre'];
+$apellidos = $_POST['apellidos'];
+$departamento = $_POST['departamento'];
+$cargo = $_POST['cargo'];
+$correo = $_POST['correo'];
+$telefono = $_POST['telefono'];
+
+function generatePassword()
+{
+    $length = 8;
+    $key = "";
+    $pattern = "1234567890abcdefghijklmnopqrstuvwxyz";
+    $max = strlen($pattern)-1;
+    for($i = 0; $i < $length; $i++){
+        $key .= substr($pattern, mt_rand(0,$max), 1);
+    }
+    return $key;
+}
+$pass = generatePassword();
+
+?>
+
+
 <!-- Modal -->
+
 <style>
   .modal-header{
     background-color: #e62b29; 
@@ -27,29 +52,41 @@
       </div>
       <div class="modal-body">
         <div class="mb-3">
-          <b class="tagUser">Nombre (s):</b> <p class="datoUser"></p>
+          <b class="tagUser">Nombre (s):</b><br>
+          <p class="datoUser">
+            <?php echo $nombre; ?>
+          </p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Apellidos:</b> <p class="datoUser"></p>
+          <b class="tagUser">Apellidos:</b><br> 
+          <p class="datoUser">
+            <?php echo $apellidos; ?>
+          </p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Departamento:</b> <p class="datoUser"></p>
+          <b class="tagUser">Departamento:</b><br> 
+          <p class="datoUser">
+            <?php echo $departamento; ?>
+          </p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Cargo:</b> <p class="datoUser"></p>
+          <b class="tagUser">Cargo:</b><br> <p class="datoUser"><?php echo $cargo; ?></p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Correo electrónico:</b> <p class="datoUser"></p>
+          <b class="tagUser">Correo electrónico:</b><br> <p class="datoUser"><?php echo $correo; ?></p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Teléfono:</b> <p class="datoUser"></p>
+          <b class="tagUser">Teléfono:</b><br> <p class="datoUser"><?php echo $telefono; ?></p>
         </div>
         <br>
         <div class="mb-3">
-          <b class="tagUser">Nombre de usuario:</b> <p class="datoUser"></p>
+          <b class="tagUser">Nombre de usuario:</b><br> <p class="datoUser"><?php echo $correo; ?></p>
         </div>
         <div class="mb-3">
-          <b class="tagUser">Contraseña:</b> <p class="datoUser"></p>
+          <b class="tagUser">Contraseña:</b><br> 
+          <p class="datoUser">
+            <?php echo $pass; ?>
+          </p>
         </div>
        
       </div>
@@ -70,3 +107,4 @@
     </div>
   </div>
 </div>
+
