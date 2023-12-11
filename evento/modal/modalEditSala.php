@@ -105,7 +105,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" value="guardar" class="btn" style="background-color: #e62b29; color: white;" id="enviarSala" >Guardar</button>
+            <button type="button" value="guardar" class="btn" style="background-color: #e62b29; color: white;" id="enviarSala">Guardar cambios</button>
             <button type="button" id="salir" onclick="cerrarModal()" class="btn" data-dismiss="modal" style="background-color: white; color: black;">Salir</button>
           </div>
         </form>

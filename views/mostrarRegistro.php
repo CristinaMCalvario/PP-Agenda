@@ -1,10 +1,5 @@
 <?php
-$nombre = $_POST['ncampo'];
-$apellidos = $_POST['acampo'];
-$departamento = $_POST['dcampo'];
-$cargo = $_POST['carcampo'];
-$correo = $_POST['ccampo'];
-$telefono = $_POST['tcampo'];
+
 
 ?>
 

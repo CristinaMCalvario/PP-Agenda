@@ -1,10 +1,25 @@
 <?php
+    $servername = "localhost";
+	$database = "agendapp";
+	$username = "root";
+	$password = "1234";
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, $database);
+	// Check connection
+	if (!$conn) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+	
+	echo "Connected successfully";
+
+    /*
     $server = "localhost";
     $usuario = "root";
     $clave = "1234";
     $base = "agendapp";
-
     $con = mysqli_connect($server, $usuario, $clave) or die("No se ha podido conectar al Servidor");
-    $db = mysqli_select_db($con, $base) or die("Upps! Error en conectar a la Base de Datos");
+    
+    */
+
 
 ?>

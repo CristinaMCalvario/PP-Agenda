@@ -1,3 +1,7 @@
+<?php
+
+  date_default_timezone_set('America/Mexico_City');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,14 +12,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-minimal/minimal.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="https://kit.fontawesome.com/b21fa3e45a.js" crossorigin="anonymous"></script>
 
     <!--CSS OWN-->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/cdn.datatables.net_v_dt_dt-1.13.6_datatables.min.css">
     <link rel="stylesheet" href="../css/bootstrap-clockpicker.css">
     <link rel="stylesheet" href="../fullcalendar/main.css">
@@ -23,7 +31,7 @@
     <!--JS -->
     <script src="../js/code.jquery.com_jquery-3.7.1.min.js"></script>
     <script src="../js/unpkg.com_@popperjs_core@2.11.8_dist_umd_popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <!--<script src="../js/bootstrap.min.js"></script>-->
     <script src="../js/cdn.datatables.net_v_dt_dt-1.13.6_datatables.min.js"></script>
     <script src="../js/bootstrap-clockpicker.js"></script>
     <script src="../js/momentjs.com_downloads_moment-with-locales.js"></script>
@@ -52,10 +60,10 @@
 <body>
 
 <?php
-include('conexion.php');
+include('../includes/conexion.php');
 
-  $SqlEventos   = ("SELECT * FROM solicitudsalajuntas");
-  $resulEventos = mysqli_query($con, $SqlEventos);
+  $SqlEventos   = ("SELECT * FROM eventos");
+  $resulEventos = mysqli_query($conn, $SqlEventos);
 
 ?>
 
@@ -64,13 +72,13 @@ include('conexion.php');
         <div class=""  id="sidebar-wrapper">
             <div class="sidebar-nav text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Sala de Juntas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Vehículo Utilitario</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Notificaciones</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Evidencia de Vehículo</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
-                        class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i class="fa-solid fa-users-between-lines"></i> Sala de Juntas</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i> Vehículo Utilitario</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i> Evidencia de Vehículo</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-bell" style="color: #555259;"></i> Notificaciones</a>
+              
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -130,8 +138,17 @@ include('conexion.php');
       </div>
       <div class="derechos-de-autor">GRUPO LOGÍSTICO (2023) &#169;</div>
     </footer>
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>-->
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.js"
+            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="../js/salajuntas.js"></script>
+
     <script>
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");
@@ -142,6 +159,7 @@ include('conexion.php');
     </script>
     <?php include ('../evento/modal/modalAgregarSala.php'); ?>
     <?php include ('../evento/modal/modalSala.php'); ?>
+    
     <script>
         
       document.addEventListener('DOMContentLoaded', function() {
@@ -165,15 +183,36 @@ include('conexion.php');
             
           locale: 'es',
 
+            defaultDate:'<?php echo date('Y-m-d'); ?>',
             defaultView: "month",
             navLinks: true, 
             editable: true,
             eventLimit: true, 
             selectable: true,
             selectHelper: false,
-            dateClick: function(){
-              $("#formEventos").modal('show');
+
+            //nuevo evento
+            select: function(start,end){
+              $('#formEventos #fechaInicio').val(moment(start).format('DD-MM-YYYY HH:mm:ss'));
+              $('#formEventos #fechaFin').val(moment(end).format('DD-MM-YYYY HH:mm:ss'));
+              $('#formEventos').modal('show');
+              
             },
+            /*dateClick: function(info) {
+              $('#enviarSala').show();
+
+
+              if (info.allDay) {
+                $('#fechaInicio').val(info.dateStr);
+                $('#fechaFin').val(info.dateStr);
+              } else {
+                let fechaHora = info.dateStr.split("T");
+                $('#fechaInicio').val(info.dateStr);
+                $('#fechaFin').val(info.dateStr);
+              }
+              $('#formEventos').modal('show');
+
+            } ,*/
            
               events: [
                 <?php
@@ -210,6 +249,8 @@ include('conexion.php');
         });
         calendar.render();
       });
+
+      
 
     </script>
     
