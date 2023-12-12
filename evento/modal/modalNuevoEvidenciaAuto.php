@@ -16,7 +16,7 @@
     letter-spacing: 2px;
   }
 </style>
-<div class="modal fade" id="formevidenciaVehiculo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="formNuevoEvidenciaVehiculo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

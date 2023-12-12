@@ -1,3 +1,10 @@
+<?php
+include('../includes/conexion.php');
+
+  $SqlEventos   = ("SELECT * FROM solicitudvehiculo");
+  $resulEventos = mysqli_query($conn, $SqlEventos);
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,26 +15,28 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-minimal/minimal.css" rel="stylesheet">
+  
     <script src="https://kit.fontawesome.com/b21fa3e45a.js" crossorigin="anonymous"></script>
 
     <!--CSS OWN-->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="../css/bootstrap.min.css">-->
     <link rel="stylesheet" href="../css/cdn.datatables.net_v_dt_dt-1.13.6_datatables.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-clockpicker.css">
-    <link rel="stylesheet" href="../fullcalendar/main.css">
+   
 
     <!--JS -->
     <script src="../js/code.jquery.com_jquery-3.7.1.min.js"></script>
     <script src="../js/unpkg.com_@popperjs_core@2.11.8_dist_umd_popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <!--<script src="../js/bootstrap.min.js"></script>-->
     <script src="../js/cdn.datatables.net_v_dt_dt-1.13.6_datatables.min.js"></script>
-    <script src="../js/bootstrap-clockpicker.js"></script>
-    <script src="../js/momentjs.com_downloads_moment-with-locales.js"></script>
-    <script src="../fullcalendar/main.js"></script>
-    <script src="../locales/es.js"></script>
+    
+    
 
     <!--STYLOS-->
     <style>
@@ -102,24 +111,49 @@
             </nav>
              <div class="container-fluid">
               <h1 class="text-center">Evidencia de Vehículo Utilitario</h1>
-              <div>
-                <table class="table table-striped">
+              <div class="table-responsive-sm">
+
+                <table id="myTable" class="table table-striped">
                   <thead>
                     <tr>
                       <th scope="col">Título</th>
+                      <th scope="col">Fecha inicio</th>
+                      <th scope="col">Fecha Fin</th>
+                      <th scope="col">Tiempo aproximado</th>
+                      <th scope="col">Nombre de pasajeros</th>
+                      <th scope="col">Destino</th>
+                      <th scope="col">Descripción</th>
+                      <th scope="col">TGA</th>
+                      <th scope="col">Observaciones</th>
+                      <th scope="col">Subir evidencia</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td scope="row">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                      <td><button class="btn" id="agregar" onclick="formEvidencia()">Agregar</button></td>
-                    </tr>
-                    <tr>
-                      <td scope="row">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                      <td><button class="btn" id="agregar">Agregar</button></td>
-                    </tr>
+                  <?php
+                    while($row = mysqli_fetch_assoc($resulEventos)){  
+                  ?>
+                      <tr>
+                        <td scope="row"><?php echo $row['titulo']; ?></td>
+                        <td scope="row"><?php echo $row['fechainicio']; ?></td>
+                        <td scope="row"><?php echo $row['fechafin']; ?></td>
+                        <td scope="row"><?php echo $row['tiempoaprox']; ?></td>
+                        <td scope="row"><?php echo $row['nombrePasajeros']; ?></td>
+                        <td scope="row"><?php echo $row['destino']; ?></td>
+                        <td scope="row"><?php echo $row['descripcion']; ?></td>
+                        <td scope="row"><?php echo $row['tga']; ?></td>
+                        <td scope="row"><?php echo $row['observaciones']; ?></td>
+                        <td>
+                          <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#formevidenciaVehiculo"><i class="fa-solid fa-file-circle-plus"></i>Agregar</a>
+                        </td>
+                      </tr>  
+                      
+                      
+                      
+                    <?php } ?>
+
                   </tbody>
                 </table>
+
               </div>
              </div>
         </div>
@@ -144,7 +178,9 @@
       <div class="derechos-de-autor">GRUPO LOGÍSTICO (2023) &#169;</div>
     </footer>
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="../js/evidenciaVehiculo.js"></script>
     <script>
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");
@@ -155,13 +191,22 @@
     </script>
      <?php include ('../evento/modal/modalEvidenciaAuto.php'); ?>
     <script>
-      let form = document.getElementById("agregar");
+      /*let form = document.getElementById("agregar");
       form.onclick = agregarEvidencia;
         function agregarEvidencia() {
-          $("#formEventos").modal('show');
+          $("#formAuto").modal('show');
 
-        }
+        }*/
+      $(document).ready( function () {
+        $('#myTable').DataTable();
+        } );
      
+      let nuevoModal = document.getElementById('formNuevoEvidenciaVehiculo');
+      nuevoModal.addEventListener('hide.bs.modal', event => {
+         nuevoModal.querySelector('.modal-body #imginicial').focus();
+         nuevoModal.querySelector('.modal-body #imgfinal');
+      })
+
 
     </script>
 </body>
