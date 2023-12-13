@@ -9,7 +9,7 @@
         $titulo = $_POST["titulo"];
         $inicio = $_POST["fechaInicio"];
         $termino = $_POST["fechaFin"];
-        $sera = $_POST["sera"];
+        $sera = implode(",", $_POST["sera"]);
         $internos = $_POST["internos"];
         $externos = $_POST["externos"];
         $descripcion = $_POST["descripcion"];
@@ -27,7 +27,7 @@
         if (mysqli_query($conn, $insert)) {
             echo "New record created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "Error: " . $insert . "<br>" . mysqli_error($conn);
         }
 
         mysqli_close($conn);

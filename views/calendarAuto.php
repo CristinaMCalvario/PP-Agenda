@@ -2,7 +2,7 @@
 
   date_default_timezone_set('America/Mexico_City');
 ?>
-<!DOCTYPE html>
+<!DOCTYPE val>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -57,10 +57,10 @@
 
 </head>
 <body>
-  <?php
-include('../includes/conexion.php');
+<?php
+  include('../includes/conexion.php');
 
-  $SqlEventos   = ("SELECT * FROM solicitudvehiculo");
+  $SqlEventos   = ("SELECT * FROM eventvehiculo");
   $resulEventos = mysqli_query($conn, $SqlEventos);
 
 ?>
@@ -156,7 +156,7 @@ include('../includes/conexion.php');
     </script>
     <?php include ('../evento/modal/modalAgregarAuto.php'); ?>
 
-    <?php include ('../evento/modal/modalAuto.php'); ?>
+    <?php include ('../evento/modal/modalEditAuto.php'); ?>
 
     <script>
         
@@ -193,6 +193,27 @@ include('../includes/conexion.php');
               $('#formEventos').modal('show');
               
             },
+            eventClick: function(info){
+              $('#ModalEdit #titulo').val(info.event.title);
+              $('#ModalEdit #fechaInicio').val(moment(info.event.start).format('DD-MM-YYYY HH:mm:ss'));
+              $('#ModalEdit #fechaFin').val(moment(info.event.end).format('DD-MM-YYYY HH:mm:ss'));
+              $('#ModalEdit #tiempoaprox').val(info.event.extendedProps.tiempoaprox);
+              $('#ModalEdit #pasajeros').val(info.event.extendedProps.pasajeros);
+              $('#ModalEdit #destino').val(info.event.extendedProps.destino);
+              $('#ModalEdit #descripcion').val(info.event.extendedProps.description);
+              $('#ModalEdit #tga').val(info.event.extendedProps.tga);
+              $('#ModalEdit #observaciones').val(info.event.extendedProps.observaciones);
+              $('#ModalEdit #id_evento').val(info.event.extendedProps._id);
+
+              $("#ModalEdit").modal('show');
+
+            },
+            eventDrop: function(info) { 
+              edit(info);
+            },
+            eventResize: function(info) { 
+              edit(info);
+            },
             events: [
                 <?php
                   while($dataEvento = mysqli_fetch_array($resulEventos)){ ?>
@@ -201,6 +222,7 @@ include('../includes/conexion.php');
                       start: '<?php echo $dataEvento['fechainicio']; ?>',
                       end:   '<?php echo $dataEvento['fechafin']; ?>',
                       extendedProps: {
+                        _id: '<?php echo $dataEvento['ID']; ?>',
                         tiempoaprox: '<?php echo $dataEvento['tiempoaprox']; ?>',
                         pasajeros: '<?php echo $dataEvento['nombrePasajeros']; ?>',
                         destino: '<?php echo $dataEvento['destino']; ?>',
@@ -211,27 +233,42 @@ include('../includes/conexion.php');
                       },
                     <?php } ?>
             ],
-
-            eventClick: function(info){
-              $('#title').html(info.event.title);
-              $('#start').html(info.event.start);
-              $('#end').html(info.event.end);
-              $('#tiempoaprox').html(info.event.extendedProps.tiempoaprox);
-              $('#pasajeros').html(info.event.extendedProps.pasajeroos);
-              $('#destino').html(info.event.extendedProps.destino);
-              $('#descripcion').html(info.event.extendedProps.description);
-              $('#tga').html(info.event.extendedProps.tga);
-              $('#observaciones').html(info.event.extendedProps.observaciones);
-
-              $("#mostrarInfo").modal('show');
-
-            }
            
         });
+
+        function edit(info){
+         
+          start = info.event.start.toISOString();
+          if(info.event.end ){
+            end = info.event.end.toISOString();
+          }else{
+            end = start;
+          }
+					
+					id_evento =  info.event.extendedProps._id;
+					
+					Event = [];
+					Event[0] = id_evento;
+					Event[1] = start;
+					Event[2] = end;
+					
+					$.ajax({
+            url: '../includes/EditDataVehiculo.php',
+            type: "POST",
+            data: {Event:Event},
+            success: function(rep) {
+                Swal.fire({
+                  title: "OK",
+                    text: "Registro exitoso",
+                    icon: "success"
+                });
+              }
+					});
+				}
+
         calendar.render();
       });
 
-    </script>
-    
+    </script>    
 </body>
 </html>

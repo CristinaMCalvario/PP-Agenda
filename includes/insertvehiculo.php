@@ -21,7 +21,16 @@
         $inicio= date('Y/m/d H:i:s', strtotime($inicio));
 		$termino= date('Y/m/d H:i:s', strtotime($termino));
 
-        $insert = "INSERT INTO solicitudvehiculo(titulo, fechainicio, fechafin, tiempoaprox, nombrePasajeros,destino, descripcion, tga,observaciones) 
+        $insert = "INSERT INTO eventvehiculo(
+            titulo, 
+            fechainicio, 
+            fechafin, 
+            tiempoaprox, 
+            nombrePasajeros,
+            destino, 
+            descripcion, 
+            tga,
+            observaciones) 
         VALUES ('$titulo','$inicio','$termino','$tiempoaprox','$pasajeros','$destino','$descripcion','$tga','$observacion')";
 
         if (mysqli_query($conn, $insert)) {
@@ -32,21 +41,7 @@
 
         mysqli_close($conn);
 
-       /* $conn = mysqli_query($con,$insert);
-
-        if ($conn) {
-            echo "sucess";
-        } else {
-            echo "error".mysqli_error();
-        }*/
-
+        header("Location: ../views/calendarAuto.php");
     }
    
-
-
-    
-    
-
-    
-    header("Location: ../views/calendarAuto.php");
 ?>

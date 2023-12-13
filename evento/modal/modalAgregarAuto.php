@@ -34,7 +34,7 @@
           <div class="mb-3 row">
             <label for="" class="col-sm-4 col-form-label">Fecha de inicio:</label>
             <div class="col-sm-8">
-              <input type="datetime" class="form-control" id="fechaInicio" name="fechaInicio">
+              <input type="datetime" class="form-control" id="fechaInicio" name="fechaInicio" placeholder="12-12-2023 09:08:10">
             </div>
           </div>
           <!--<div class="mb-3 row">
@@ -53,7 +53,7 @@
           <div class="mb-3 row">
             <label for="" class="col-sm-4 col-form-label">Fecha de fin:</label>
             <div class="col-sm-8">
-              <input type="datetime" class="form-control" id="fechaFin" name="fechaFin">
+              <input type="datetime" class="form-control" id="fechaFin" name="fechaFin" placeholder="12-12-2023 15:08:10">
             </div>
           </div>
           <!--<div class="mb-3 row">

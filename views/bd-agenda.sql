@@ -15,7 +15,7 @@
 (1, 'Junta de Tequila', '2023-11-23 13:30:00', '2023-11-23 18:00:00', 'presencial', 'aSDFGHJ', 'fdghjkhgf', 'dfghjk', 'proyector'),
 (2, 'GYM', '2023-11-08 15:51:34', '2023-11-08 16:51:34', '', 'SADSFDGFH', 'ASDFGH', 'SADFGH', 'proyector');*/
 
-/*CREATE TABLE `agendapp`.`solicitudvehiculo` ( 
+CREATE TABLE `agendapp`.`solicitudvehiculo` ( 
     `ID` INT(10) NOT NULL AUTO_INCREMENT , 
     `titulo` VARCHAR(100) NOT NULL , 
     `fechainicio` DATETIME NOT NULL ,  

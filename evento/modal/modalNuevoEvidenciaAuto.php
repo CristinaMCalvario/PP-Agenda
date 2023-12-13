@@ -26,7 +26,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="formevidenciavehiculo" method="post">
+        <form id="formevidenciavehiculo" method="post" action="../includes/insertevidenciavehiculo.php">
           <div class="mb-3">
             <label for="" class="form-label">Kilometraje inicial:</label>
             <input class="form-control" type="file" id="imginicial" name="imginicial" multiple>

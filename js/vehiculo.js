@@ -115,7 +115,3 @@ function validaForm() {
                     }
                 });    
       });
-    function cerrarModal() {
-        $('#myModal #salir').modal('hide')
-    }
-      

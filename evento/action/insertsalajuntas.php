@@ -35,6 +35,7 @@
 
         mysqli_close($conn);
 
+        header("Location: ../views/calendarSala.php");
        /* $conn = mysqli_query($con,$insert);
 
         if ($conn) {

@@ -26,7 +26,7 @@
         </button>
       </div>
       <div class="modal-body">
-        
+        <input type="hidden" name="id_evento" class="form-control" id="id_evento">
         <div class="mb-3">
           <b class="tagUser">Fecha inicio:</b> <p id="start" class="datoUser"></p>
         </div>
@@ -61,8 +61,8 @@
         </div>
       -->
       <div class="modal-footer">
-        <button type="button" class="btn" style="background-color: #e62b29; color: white;" >Aceptar</button>
-        <button type="button" class="btn" style="background-color: #e62b29; color: white;" >Eliminar</button>
+        <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#ModalEdit" style="background-color: #e62b29; color: white;">Editar</a>
+        <a href="calendarSala.php" class="btn" style="background-color: white; color: black;">Salir</a>
       </div>
     </div>
   </div>

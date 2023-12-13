@@ -158,7 +158,7 @@ include('../includes/conexion.php');
         };
     </script>
     <?php include ('../evento/modal/modalAgregarSala.php'); ?>
-    <?php include ('../evento/modal/modalSala.php'); ?>
+    <?php include ('../evento/modal/modalEditSala.php'); ?>
     
     <script>
         
@@ -198,55 +198,80 @@ include('../includes/conexion.php');
               $('#formEventos').modal('show');
               
             },
-            /*dateClick: function(info) {
-              $('#enviarSala').show();
+            eventClick: function(info){
+              $('#ModalEdit #titulo').val(info.event.title);
+              $('#ModalEdit #fechaInicio').val(moment(info.event.start).format('DD-MM-YYYY HH:mm:ss'));
+              $('#ModalEdit #fechaFin').val(moment(info.event.end).format('DD-MM-YYYY HH:mm:ss'));
+              $('#ModalEdit #sera').val(info.event.extendedProps.juntasera);
+              $('#ModalEdit #internos').val(info.event.extendedProps.participantesInternos);
+              $('#ModalEdit #externos').val(info.event.extendedProps.participantesExternos);
+              $('#ModalEdit #descripcion').val(info.event.extendedProps.description);
+              $('#ModalEdit #usaras').val(info.event.extendedProps.usaras);
+              $('#ModalEdit #id_evento').val(info.event.extendedProps._id);
 
+              $("#ModalEdit").modal('show');
 
-              if (info.allDay) {
-                $('#fechaInicio').val(info.dateStr);
-                $('#fechaFin').val(info.dateStr);
-              } else {
-                let fechaHora = info.dateStr.split("T");
-                $('#fechaInicio').val(info.dateStr);
-                $('#fechaFin').val(info.dateStr);
-              }
-              $('#formEventos').modal('show');
-
-            } ,*/
+            },
+            eventDrop: function(info) { 
+              edit(info);
+            },
+            eventResize: function(info) { 
+              edit(info);
+            },
            
               events: [
                 <?php
                   while($dataEvento = mysqli_fetch_array($resulEventos)){ ?>
-                      {
+                    { 
                       title: '<?php echo $dataEvento['titulo']; ?>',
                       start: '<?php echo $dataEvento['fechainicio']; ?>',
                       end:   '<?php echo $dataEvento['fechafin']; ?>',
                       extendedProps: {
+                        _id: '<?php echo $dataEvento['ID']; ?>',
                         juntasera: '<?php echo $dataEvento['juntasera']; ?>',
                         participantesInternos: '<?php echo $dataEvento['participantesInternos']; ?>',
                         participantesExternos: '<?php echo $dataEvento['participantesExternos']; ?>',
                         description: '<?php echo $dataEvento['descripcion']; ?>',
                         usaras : '<?php echo $dataEvento['usaras']; ?>'
                         }
-                      },
+                    },
                     <?php } ?>
-            ],
-
-            eventClick: function(info){
-              $('#title').html(info.event.title);
-              $('#start').html(info.event.start);
-              $('#end').html(info.event.end);
-              $('#sera').html(info.event.extendedProps.juntasera);
-              $('#partinternos').html(info.event.extendedProps.participantesInternos);
-              $('#partexternos').html(info.event.extendedProps.participantesExternos);
-              $('#desc').html(info.event.extendedProps.description);
-              $('#usara').html(info.event.extendedProps.usaras);
-
-              $("#mostrarInfo").modal('show');
-
-            }
+            ]
+            
+            
             
         });
+        function edit(info){
+         
+            start = info.event.start.toISOString();
+            if(info.event.end ){
+						  end = info.event.end.toISOString();
+            }else{
+              end = start;
+            }
+					
+					id_evento =  info.event.extendedProps._id;
+					
+					Event = [];
+					Event[0] = id_evento;
+					Event[1] = start;
+					Event[2] = end;
+					
+					$.ajax({
+					url: '../includes/eventoEditData.php',
+					type: "POST",
+					data: {Event:Event},
+					success: function(rep) {
+							Swal.fire({
+                title: "OK",
+                  text: "Registro exitoso",
+                  icon: "success"
+              });
+						}
+					});
+				}
+        
+
         calendar.render();
       });
 

@@ -58,33 +58,33 @@
           <div class="mb-3">
             <label for="" class="form-label">La junta será:</label>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="sera" id="sera" checked>
-              <label class="form-check-label" for="">
+              <input class="form-check-input" type="radio" name="sera[]" id="sera" checked>
+              <label class="form-check-label">
                 Presencial
               </label>
             </div>
             
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="sera" id="sera" >
-              <label class="form-check-label" for="">
+              <input class="form-check-input" type="radio" name="sera[]" id="sera" >
+              <label class="form-check-label">
                 Remoto
               </label>
             </div>
           </div>
           <div class="mb-3">
-            <label for="" class="form-label">Nombres de los participantes internos:</label>
+            <label class="form-label">Nombres de los participantes internos:</label>
             <textarea class="form-control" name="internos" id="internos" rows="3"></textarea>
           </div>
           <div class="mb-3">
-            <label for="" class="form-label">Nombres de los participantes externos:</label>
+            <label class="form-label">Nombres de los participantes externos:</label>
             <textarea class="form-control" name="externos" id="externos" rows="3"></textarea>
           </div>
           <div class="mb-3">
-            <label for="" class="form-label">Descripción:</label>
+            <label class="form-label">Descripción:</label>
             <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
           </div>
           <div class="mb-3">
-            <label for="" class="form-label">Usarás:</label>
+            <label class="form-label">Usarás:</label>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="proyector" name="usaras[]" id="usaras" checked>
               <label class="form-check-label" for="">
@@ -93,13 +93,13 @@
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="bocina" name="usaras[]" id="usaras">
-              <label class="form-check-label" for="">
+              <label class="form-check-label">
                 Bocina
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="TI" name="usaras[]" id="usaras">
-              <label class="form-check-label" for="">
+              <label class="form-check-label">
                 Asistencia del personal de TI
               </label>
             </div>

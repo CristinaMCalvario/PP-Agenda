@@ -62,7 +62,7 @@
         </div>
       -->
       <div class="modal-footer">
-        <button type="button" class="btn" style="background-color: #e62b29; color: white;" >Aceptar</button>
+        <button type="button" class="btn" style="background-color: #e62b29; color: white;" >Editar</button>
         <button type="button" class="btn" style="background-color: #e62b29; color: white;" >Eliminar</button>
       </div>
     </div>

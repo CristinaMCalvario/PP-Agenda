@@ -68,11 +68,11 @@ include('../includes/conexion.php');
         <div class=""  id="sidebar-wrapper">
             <div class="sidebar-nav text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Sala de Juntas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Vehículo Utilitario</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Notificaciones</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Evidencia de Vehículo</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-users-between-lines"></i> Sala de Juntas</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i class="fa-solid fa-car"></i> Vehículo Utilitario</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i> Evidencia de Vehículo</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-bell" style="color: #555259;"></i> Notificaciones</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
             </div>
@@ -180,7 +180,7 @@ include('../includes/conexion.php');
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2/dist/sweetalert2.min.js"></script>
-    <script src="../js/evidenciaVehiculo.js"></script>
+   
     <script>
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");
@@ -190,6 +190,7 @@ include('../includes/conexion.php');
         };
     </script>
      <?php include ('../evento/modal/modalEvidenciaAuto.php'); ?>
+     <?php include ('../evento/modal/modalNuevoEvidenciaAuto.php'); ?>
     <script>
       /*let form = document.getElementById("agregar");
       form.onclick = agregarEvidencia;
@@ -203,7 +204,7 @@ include('../includes/conexion.php');
      
       let nuevoModal = document.getElementById('formNuevoEvidenciaVehiculo');
       nuevoModal.addEventListener('hide.bs.modal', event => {
-         nuevoModal.querySelector('.modal-body #imginicial').focus();
+         nuevoModal.querySelector('.modal-body #imginicial');
          nuevoModal.querySelector('.modal-body #imgfinal');
       })
 
