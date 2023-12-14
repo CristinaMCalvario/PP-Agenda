@@ -50,9 +50,9 @@
             <div class="list-group list-group-flush my-3">
                 <a href="dashboardAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i class="fa-regular fa-user"></i>Registro Usuarios</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-users-between-lines"></i></i> Solicitudes Sala de Juntas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i>Solicitudes Vehículo Utilitario</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i>Evidencia de Vehículo</a>
+                <a href="solicitudSalaJuntas.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-users-between-lines"></i></i> Solicitudes Sala de Juntas</a>
+                <a href="solicitudVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i>Solicitudes Vehículo Utilitario</a>
+                <a href="aceptarEvidenciaVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i>Evidencia de Vehículo</a>
         
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Cerrar sesión</a>
@@ -168,6 +168,7 @@
                         <div class="mb-3">
                             <label for="pass" class="form-label">Contraseña:</label>
                             <input type="password" name="pass" id="pass" class="form-control" required value="">
+                            <label for="pass" class="form-label">Contraseña a ingresar:</label>
                             <?php 
                                     $pass =  generatePassword();
                                     echo $pass;

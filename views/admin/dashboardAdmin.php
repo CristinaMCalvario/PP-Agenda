@@ -21,10 +21,10 @@
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
-                <a href="registroUsuarios.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-regular fa-user"></i>Registro Usuarios</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-users-between-lines"></i> Solicitudes Sala de Juntas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i>Solicitudes Vehículo Utilitario</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i>Evidencia de Vehículo</a>
+                <a href="registroUsuarios.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-regular fa-user"></i> Registro Usuarios</a>
+                <a href="solicitudSalaJuntas.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-users-between-lines"></i>Solicitudes Sala de Juntas</a>
+                <a href="solicitudVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i> Solicitudes Vehículo Utilitario</a>
+                <a href="aceptarEvidenciaVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i> Evidencia de Vehículo</a>
         
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Cerrar sesión</a>
@@ -66,7 +66,7 @@
             <div class="container-fluid px-4">
                 <div class="row g-3 my-2">
                     <div class="col-md-3">
-                        <a href="#" class="elementos">
+                        <a href="registroUsuarios.php" class="elementos">
                              <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <!--<h3 class="fs-2"></h3>-->
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <a href="#" class="elementos">
+                        <a href="solicitudSalaJuntas.php" class="elementos">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <!---<h3 class="fs-2"></h3>-->
@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <a href="#" class="elementos"> 
+                        <a href="solicitudVehiculo.php" class="elementos"> 
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <!--<h3 class="fs-2">3899</h3>-->
@@ -104,7 +104,7 @@
                     </div>
                     
                     <div class="col-md-3">
-                        <a href="#" class="elementos" >
+                        <a href="aceptarEvidenciaVehiculo.php" class="elementos" >
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                <!-- <h3 class="fs-2">%25</h3>-->

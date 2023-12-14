@@ -1,3 +1,10 @@
+<?php
+include('../../includes/conexion.php');
+
+  $SqlEventos   = ("SELECT * FROM eventos");
+  $resulEventos = mysqli_query($conn, $SqlEventos);
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,13 +19,13 @@
     
     <script src="https://kit.fontawesome.com/b21fa3e45a.js" crossorigin="anonymous"></script>
 
-    <!--CSS OWN-->
-    <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-minimal/minimal.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 
     <!--JS -->
-    <script src="../js/code.jquery.com_jquery-3.7.1.min.js"></script>
-    <script src="../js/unpkg.com_@popperjs_core@2.11.8_dist_umd_popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!--STYLOS-->
     <style>
@@ -36,13 +43,13 @@
         <div class=""  id="sidebar-wrapper">
             <div class="sidebar-nav text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Registro Usuarios</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Solicitudes Sala de Juntas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Solicitudes Vehículo Utilitario</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Evidencia de Vehículo</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
-                        class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
+                <a href="dashboardAdmin.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="registroUsuarios.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-regular fa-user"></i>Registro Usuarios</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-users-between-lines"></i> Solicitudes Sala de Juntas</a>
+                <a href="solicitudVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i>Solicitudes Vehículo Utilitario</a>
+                <a href="aceptarEvidenciaVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i>Evidencia de Vehículo</a>
+                
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -79,27 +86,48 @@
             </nav>
              <div class="container-fluid">
               <div id="calendar"></div>
-                <h3 class="fs-4 mb-3 text-center">Solicitudes de Sala de Juntas</h3>
-                <div class="col">
-                  <table class="table table-striped">
-                  <tbody>
-                    <tr>
-                      <td scope="row">Lorem ipsum dolor sit, amet consectetur.</td>
-                      <td><button class="btn" id="agregar" onclick="verRegistro()"><i class="fa-solid fa-eye" style="color: #555259;"></i></button></td>
-                      <td><i class="fa-solid fa-trash-can" style="color: #555259;"></i></td>
-                      <td><button class="btn">Aceptar</button></td>
+                <h3 class="fs-4 mb-3 text-center">Eventos de Sala de Juntas</h3>
+                <div class="table-responsive-sm">
+
+                  <table id="myTable" class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Fecha Inicio</th>
+                        <th scope="col">Fecha Final</th>
+                        <th scope="col">Junta sera</th>
+                        <th scope="col">Participantes Internos</th>
+                        <th scope="col">Participantes Externos</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Usarás</th>
+                        <th scope="col">Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                        while($row = mysqli_fetch_assoc($resulEventos)){  
+                      ?>
+                      <tr>
+                        <td scope="row"><?php echo $row['titulo']; ?></td>
+                        <td scope="row"><?php echo $row['fechainicio']; ?></td>
+                        <td scope="row"><?php echo $row['fechafin']; ?></td>
+                        <td scope="row"><?php echo $row['juntasera']; ?></td>
+                        <td scope="row"><?php echo $row['participantesInternos']; ?></td>
+                        <td scope="row"><?php echo $row['participantesExternos']; ?></td>
+                        <td scope="row"><?php echo $row['descripcion']; ?></td>
+                        <td scope="row"><?php echo $row['usaras']; ?></td>
+                        <td>
+                          <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#">Aceptar</a>
+                          <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#ModalEdit" data-bs-id="<?=$row['ID'];?>"><i class="fa-solid fa-pen-to-square"></i>Editar</a>
+
+                        </td>
+                      </tr>  
+                      <?php } ?>
                       
-                    </tr>
-                    <tr>
-                      <td scope="row">Lorem ipsum, dolor sit amet.</td>
-                      <td><i class="fa-solid fa-eye" style="color: #555259;"></i></td>
-                      <td><i class="fa-solid fa-trash-can" style="color: #555259;"></i></td>
-                      <td><i class="fa-solid fa-check" style="color: #25f813;"> Aceptado</i></td>
-                    </tr>
-                  </tbody>
-                </table>                        
+                    </tbody>
+                  </table>                        
                 </div>
-             </div>
+              </div>
         </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -121,6 +149,9 @@
       </div>
       <div class="derechos-de-autor">GRUPO LOGÍSTICO (2023) &#169;</div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></>-->
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></>-->
     <script>
@@ -130,15 +161,16 @@
         toggleButton.onclick = function () {
             el.classList.toggle("toggled");
         };
+    
     </script>
-    <?php include ('../evento/modal/modalSala.php'); ?>
+    <?php include ('../../evento/modal/admin/modalEditSala.php'); ?>
+    
     <script>
-        let form = document.getElementById("agregar");
-      form.onclick = verRegistro;
-        function verRegistro() {
-          $("#RegistroUser").modal('show');
+      $(document).ready( function () {
+        $('#myTable').DataTable();
+        } );
 
-        }
+        
 
     </script>
 </body>

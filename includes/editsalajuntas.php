@@ -4,8 +4,8 @@
 
     require_once("conexion.php");
 
-    if(isset($_POST["id_evento"]) && isset($_POST["delete"])){
-        $id_evento = $_POST["id_evento"];
+    if(isset($_POST["id"]) && isset($_POST["delete"])){
+        $id_evento = $_POST["id"];
         $delete = ("DELETE FROM eventos WHERE ID = '$id_evento'");
         if (mysqli_query($conn, $delete)) {
             echo "New record created successfully";
@@ -15,9 +15,9 @@
 
         mysqli_close($conn);
         header("Location: ../views/calendarSala.php");
-    } else if (isset($_POST["id_evento"]) && isset($_POST["titulo"]) && isset($_POST["fechaInicio"]) && isset($_POST["fechaFin"]) && isset($_POST["sera"]) && isset($_POST["internos"]) && isset($_POST["externos"]) && isset($_POST["descripcion"]) && isset($_POST['usaras'])) {
+    } else if (isset($_POST["id"]) && isset($_POST["titulo"]) && isset($_POST["fechaInicio"]) && isset($_POST["fechaFin"]) && isset($_POST["sera"]) && isset($_POST["internos"]) && isset($_POST["externos"]) && isset($_POST["descripcion"]) && isset($_POST['usaras'])) {
 
-        $id_evento = $_POST["id_evento"];
+        $id_evento = $_POST["id"];
         $titulo = $_POST['titulo'];
         /*$inicio = $_POST['fechaInicio'];
         $termino = $_POST['fechaFin'];*/
@@ -49,23 +49,8 @@
 
         mysqli_close($conn);
 
-       /* $conn = mysqli_query($con,$insert);
-
-        if ($conn) {
-            echo "sucess";
-        } else {
-            echo "error".mysqli_error();
-        }*/
-        //header("Location: ../views/calendarAuto.php");
 
     header("Location: ../views/calendarSala.php");
     }
-   
-
-
-    
-    
-
-    
     
 ?>

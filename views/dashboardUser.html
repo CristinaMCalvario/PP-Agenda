@@ -14,7 +14,6 @@
 
     <!--CSS OWN-->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/cdn.datatables.net_v_dt_dt-1.13.6_datatables.min.css">
     <link rel="stylesheet" href="../css/bootstrap-clockpicker.css">
     <link rel="stylesheet" href="../fullcalendar/main.css">
@@ -22,7 +21,6 @@
     <!--JS -->
     <script src="../js/code.jquery.com_jquery-3.7.1.min.js"></script>
     <script src="../js/unpkg.com_@popperjs_core@2.11.8_dist_umd_popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/cdn.datatables.net_v_dt_dt-1.13.6_datatables.min.js"></script>
     <script src="../js/bootstrap-clockpicker.js"></script>
     <script src="../js/momentjs.com_downloads_moment-with-locales.js"></script>
@@ -36,7 +34,7 @@
         justify-content: center;
         margin: 20px;
       }
-      .btns button{
+      .btns .boton{
         background-color: #e62b29;
         color: white;
         margin: 15px;
@@ -54,11 +52,11 @@
         <div class=""  id="sidebar-wrapper">
             <div class="sidebar-nav text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Sala de Juntas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Vehículo Utilitario</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Notificaciones</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Evidencia de Vehículo</a>
+               <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="calendarSala.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-users-between-lines"></i> Sala de Juntas</a>
+                <a href="calendarAuto.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i> Vehículo Utilitario</a>
+                <a href="evidenciaVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i> Evidencia de Vehículo</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-bell" style="color: #555259;"></i> Notificaciones</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
             </div>
@@ -99,8 +97,8 @@
               <h1 class="text-center">Agenda</h1>
               <div id="calendar"></div>
               <div class="btns">
-                <button class="btn btn-lg">Agendar Sala de Juntas</button>
-                <button class="btn btn-lg">Agendar Auto Utilitario</button>
+                <a href="calendarSala.php" class="btn btn-lg boton">Agendar Sala de Juntas</a>
+                <a href="calendarAuto.php" class="btn btn-lg boton">Agendar Auto Utilitario</a>
               </div>
              </div>
         </div>

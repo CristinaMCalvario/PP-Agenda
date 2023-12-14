@@ -40,12 +40,12 @@ include('../includes/conexion.php');
 
     <!--STYLOS-->
     <style>
-      .btns{
+      .btn{
         display: flex;
         justify-content: center;
         margin: 20px;
       }
-      .btns button{
+      .boton{
         background-color: #e62b29;
         color: white;
         margin: 15px;
@@ -68,11 +68,11 @@ include('../includes/conexion.php');
         <div class=""  id="sidebar-wrapper">
             <div class="sidebar-nav text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><img src="../img/logoGL2.png" width="100"></div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-users-between-lines"></i> Sala de Juntas</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i class="fa-solid fa-car"></i> Vehículo Utilitario</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i> Evidencia de Vehículo</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-bell" style="color: #555259;"></i> Notificaciones</a>
+                <a href="dashboardUser.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="calendarSala.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-users-between-lines"></i> Sala de Juntas</a>
+                <a href="calendarAuto.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i> Vehículo Utilitario</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold active"><i class="fa-solid fa-images"></i> Evidencia de Vehículo</a>
+                <a href="evidenciaVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-bell" style="color: #555259;"></i> Notificaciones</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
             </div>
@@ -143,7 +143,7 @@ include('../includes/conexion.php');
                         <td scope="row"><?php echo $row['tga']; ?></td>
                         <td scope="row"><?php echo $row['observaciones']; ?></td>
                         <td>
-                          <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#formevidenciaVehiculo"><i class="fa-solid fa-file-circle-plus"></i>Agregar</a>
+                          <a href="#" class="btn boton" data-bs-toggle="modal" data-bs-target="#formevidenciaVehiculo"><i class="fa-solid fa-file-circle-plus"></i>Agregar</a>
                         </td>
                       </tr>  
                       
