@@ -1,8 +1,20 @@
 <?php
 
+if(!isset($_SESSION)){
+    	session_start();
+	}
+
+	$id_user = $_SESSION['idUsuario'];
+
+	if(!isset ($_SESSION['idUsuario'])) {
+    	header('Location: login.html');
+	}
+
+  include('../includes/conexion.php');
+
   date_default_timezone_set('America/Mexico_City');
 ?>
-<!DOCTYPE val>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -58,7 +70,7 @@
 </head>
 <body>
 <?php
-  include('../includes/conexion.php');
+  
 
   $SqlEventos   = ("SELECT * FROM eventvehiculo");
   $resulEventos = mysqli_query($conn, $SqlEventos);

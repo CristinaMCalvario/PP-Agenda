@@ -1,3 +1,26 @@
+<?php
+	if(!isset($_SESSION)){
+    	session_start();
+	}
+
+	$id_user = $_SESSION['idUsuario'];
+
+	if(!isset ($_SESSION['idUsuario'])) {
+    	header('Location: login.html');
+	}
+
+	require_once('../includes/conexion.php');
+	date_default_timezone_set('America/Mexico_City');
+
+   $SqlEventos   = ("SELECT * FROM eventos");
+   $SqlEventos2   = ("SELECT * FROM eventvehiculo ");
+  $resulEventos = mysqli_query($conn, $SqlEventos);
+  $resulEventos2 = mysqli_query($conn, $SqlEventos2);
+
+	
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -83,24 +106,27 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>John Doe
+                                <i class="fas fa-user me-2"></i><?php echo $_SESSION['nombre']; ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Notificaciones</a></li>
-                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" href="../includes/_sesion/cerrarSesionUser.php">Cerrar Sesión</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </nav>
-             <div class="container-fluid">
+            <div class="container-fluid">
               <h1 class="text-center">Agenda</h1>
               <div id="calendar"></div>
               <div class="btns">
                 <a href="calendarSala.php" class="btn btn-lg boton">Agendar Sala de Juntas</a>
+              </div>
+               <div id="calendar2"></div>
+              <div class="btns">
                 <a href="calendarAuto.php" class="btn btn-lg boton">Agendar Auto Utilitario</a>
               </div>
-             </div>
+            </div>
         </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -122,8 +148,8 @@
       </div>
       <div class="derechos-de-autor">GRUPO LOGÍSTICO (2023) &#169;</div>
     </footer>
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");
@@ -149,7 +175,71 @@
             editable: true,
             eventLimit: true, 
             selectable: true,
-            selectHelper: false
+            selectHelper: false,
+            events: [
+                <?php
+                  while($dataEvento = mysqli_fetch_array($resulEventos)){ ?>
+                    { 
+                      title: '<?php echo $dataEvento['titulo']; ?>',
+                      start: '<?php echo $dataEvento['fechainicio']; ?>',
+                      end:   '<?php echo $dataEvento['fechafin']; ?>',
+                      extendedProps: {
+                        _id: '<?php echo $dataEvento['ID']; ?>',
+                        juntasera: '<?php echo $dataEvento['juntasera']; ?>',
+                        participantesInternos: '<?php echo $dataEvento['participantesInternos']; ?>',
+                        participantesExternos: '<?php echo $dataEvento['participantesExternos']; ?>',
+                        description: '<?php echo $dataEvento['descripcion']; ?>',
+                        usaras : '<?php echo $dataEvento['usaras']; ?>'
+                        }
+                    },
+                    <?php } ?>
+                   
+            ]
+            
+        });
+        calendar.render();
+      });
+
+    </script>
+     <script>
+        
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar2');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          headerToolbar: {
+                left: "prev,next today",
+                center: "title",
+                right: "dayGridMonth,timeGridWeek,timeGridDay"
+            },
+          locale: 'es',
+
+            defaultView: "month",
+            navLinks: true, 
+            editable: true,
+            eventLimit: true, 
+            selectable: true,
+            selectHelper: false,
+            events: [
+                <?php
+                  while($dataEvento2 = mysqli_fetch_array($resulEventos2)){ ?>
+                    { 
+                      title: '<?php echo $dataEvento2['titulo']; ?>',
+                      start: '<?php echo $dataEvento2['fechainicio']; ?>',
+                      end:   '<?php echo $dataEvento2['fechafin']; ?>',
+                      extendedProps: {
+                        _id: '<?php echo $dataEvento2['ID']; ?>',
+                        tiempoaprox: '<?php echo $dataEvento2['tiempoaprox']; ?>',
+                        pasajeros: '<?php echo $dataEvento2['nombrePasajeros']; ?>',
+                        destino: '<?php echo $dataEvento2['destino']; ?>',
+                        description: '<?php echo $dataEvento2['descripcion']; ?>',
+                        tga: '<?php echo $dataEvento2['tga']; ?>',
+                        observaciones: '<?php echo $dataEvento2['observaciones']; ?>'
+                        }
+                    },
+                    <?php } ?>
+                   
+            ]
+            
         });
         calendar.render();
       });

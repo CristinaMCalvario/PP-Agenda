@@ -13,7 +13,7 @@ $server = "localhost";
     $telefono = $_POST["telefono"];
     $rol = $_POST["rol"];
     $username = $_POST["username"];
-    $password = md($_POST["pass"]);
+    $password = md5($_POST["pass"]);
     
     $insert = "INSERT INTO usuario(id, nombre, apellidos, departamento, cargo, correo, telefono, username, password, rol) 
     VALUES ('$nombre','$apellidos','$departamento','$cargo','$correo','$telefono','$rol','$username','$password')";

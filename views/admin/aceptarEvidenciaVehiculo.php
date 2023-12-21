@@ -1,4 +1,13 @@
 <?php
+  if(!isset($_SESSION)){
+    	session_start();
+	}
+
+	$id_user = $_SESSION['idUsuario'];
+
+	if(!isset ($_SESSION['idUsuario'])) {
+    	header('Location: login.html');
+	}
 include('../../includes/conexion.php');
 
   $SqlEventos   = ("SELECT * FROM evidenciavehiculo");
