@@ -6,7 +6,7 @@
 	$id_user = $_SESSION['idUsuario'];
 
 	if(!isset ($_SESSION['idUsuario'])) {
-    	header('Location: login.html');
+    	header('Location: loginAdmin.php');
 	}
 include('../../includes/conexion.php');
 
@@ -64,7 +64,7 @@ include('../../includes/conexion.php');
                 <a href="solicitudVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i>Solicitudes Vehículo Utilitario</a>
                 <a href="aceptarEvidenciaVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i>Evidencia de Vehículo</a>
         
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
+                <a href="../../includes/_sesion/cerrarSesionAdmin.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Cerrar sesión</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -88,10 +88,10 @@ include('../../includes/conexion.php');
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>John Doe
+                                <i class="fas fa-user me-2"></i><?php echo $_SESSION['username']; ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="../../includes/_sesion/cerrarSesionAdmin.php">Cerrar Sesión</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -136,7 +136,7 @@ include('../../includes/conexion.php');
                                 while($row = mysqli_fetch_assoc($resulEventos)){  
                             ?>
                             <tr>
-                                <td scope="row"><?php echo $row['id']; ?></td>
+                                <td scope="row"><?php echo $row['ID']; ?></td>
                                 <td scope="row"><?php echo $row['nombre']; ?></td>
                                 <td scope="row"><?php echo $row['apellidos']; ?></td>
                                 <td scope="row"><?php echo $row['departamento']; ?></td>
