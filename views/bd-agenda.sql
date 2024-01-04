@@ -15,7 +15,7 @@
 (1, 'Junta de Tequila', '2023-11-23 13:30:00', '2023-11-23 18:00:00', 'presencial', 'aSDFGHJ', 'fdghjkhgf', 'dfghjk', 'proyector'),
 (2, 'GYM', '2023-11-08 15:51:34', '2023-11-08 16:51:34', '', 'SADSFDGFH', 'ASDFGH', 'SADFGH', 'proyector');*/
 
-CREATE TABLE `agendapp`.`solicitudvehiculo` ( 
+/*CREATE TABLE `agendapp`.`solicitudvehiculo` ( 
     `ID` INT(10) NOT NULL AUTO_INCREMENT , 
     `titulo` VARCHAR(100) NOT NULL , 
     `fechainicio` DATETIME NOT NULL ,  
@@ -30,13 +30,28 @@ CREATE TABLE `agendapp`.`solicitudvehiculo` (
     PRIMARY KEY (`ID`),
     FOREIGN KEY (`IDUser`) REFERENCES  usuario(ID)
     );*/
-    INSERT INTO `eventos` (`ID`, `titulo`, `fechainicio`, `fechafin`, `tiempoaprox`, `nombrePasajeros`, `destino`, `descripcion`, `tga`,`observaciones`,`IDUser`) VALUES
+    /*CREATE TABLE `solicitudsalajuntas` (
+    `ID` int(10) NOT NULL AUTO_INCREMENT,
+    `titulo` varchar(100) NOT NULL,
+    `fechainicio` datetime NOT NULL,
+    `fechafin` datetime NOT NULL,
+    `juntasera` varchar(20) NOT NULL,
+    `participantesInternos` varchar(200) NOT NULL,
+    `participantesExternos` varchar(200) NOT NULL,
+    `descripcion` varchar(200) NOT NULL,
+    `usaras` varchar(20) NOT NULL,
+    `IDUser` int(10) NOT NULL,
+    PRIMARY KEY (`ID`),
+      FOREIGN KEY (`IDUser`) REFERENCES  usuario(ID)
+  );*/
+  
+    /*INSERT INTO `eventos` (`ID`, `titulo`, `fechainicio`, `fechafin`, `tiempoaprox`, `nombrePasajeros`, `destino`, `descripcion`, `tga`,`observaciones`,`IDUser`) VALUES
     (1, 'Visitar salon', '2023-11-23 13:30:00', '2023-11-23 18:00:00', `2 horas`, `juanito`, `valle de mexico`, `ver terrenos`, `Si`,`observaciones`,`2`),
-    (2, 'Viaje a nacamilpa', '2023-11-09 15:51:34', '2023-11-09 16:51:34', `5 horas`, `Lalo`, `Nacamilpa`, `descripcion`, `No`,`observaciones`,`2`);
-/*
-CREATE TABLE `agendapp`.`evidenciavehiculo` ( 
+    (2, 'Viaje a nacamilpa', '2023-11-09 15:51:34', '2023-11-09 16:51:34', `5 horas`, `Lalo`, `Nacamilpa`, `descripcion`, `No`,`observaciones`,`2`);*/
+
+/*CREATE TABLE `agendapp`.`evidenciavehiculo` ( 
     `ID` INT(10) NOT NULL AUTO_INCREMENT , 
-    `kilometrajeInicial` LONGBLOB NOT NUL. , 
+    `kilometrajeInicial` LONGBLOB NOT NULL , 
     `kilometrajeFinal` LONGBLOB NOT NULL ,
      `IDUser` INT(10) NOT NULL ,   
     PRIMARY KEY (`ID`),

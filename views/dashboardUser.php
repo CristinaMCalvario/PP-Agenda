@@ -1,13 +1,11 @@
 <?php
-	if(!isset($_SESSION)){
-    	session_start();
-	}
-
-	$id_user = $_SESSION['idUsuario'];
+  session_start();
+  $id_user = $_SESSION['idUsuario'];
 
 	if(!isset ($_SESSION['idUsuario'])) {
-    	header('Location: login.html');
+    	header('Location: login.php');
 	}
+
 
 	require_once('../includes/conexion.php');
 	date_default_timezone_set('America/Mexico_City');
@@ -66,6 +64,10 @@
         max-width: 900px;
         margin: 0 auto;
       }
+      #calendar2{
+        max-width: 900px;
+        margin: 0 auto;
+      }
     </style>
 
 </head>
@@ -80,7 +82,8 @@
                 <a href="calendarAuto.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-car"></i> Vehículo Utilitario</a>
                 <a href="evidenciaVehiculo.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-images"></i> Evidencia de Vehículo</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-bell" style="color: #555259;"></i> Notificaciones</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+
+                <a href="../includes/_sesion/cerrarSesionUser.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Cerrar Sesión</a>
             </div>
         </div>
@@ -106,7 +109,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i><?php echo $_SESSION['nombre']; ?>
+                                <i class="fas fa-user me-2"></i><?php echo $_SESSION['username']; ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Notificaciones</a></li>

@@ -27,27 +27,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `eventosalajuntas`
 --
 
-CREATE TABLE `eventosalajuntas` (
-  `ID` int(10) NOT NULL,
-  `titulo` varchar(300) DEFAULT NULL,
-  `descripcion` text DEFAULT NULL,
-  `incio` datetime DEFAULT NULL,
-  `fin` datetime DEFAULT NULL,
-  `IDUser` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `evidenciavehiculo`
---
-
-CREATE TABLE `evidenciavehiculo` (
-  `ID` int(10) NOT NULL,
-  `kilometrajeInicial` longblob NOT NULL,
-  `kilometrajeFinal` longblob NOT NULL,
-  `IDUser` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -102,27 +82,7 @@ CREATE TABLE `solicitudvehiculo` (
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `ID` int(10) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `apellidos` varchar(100) NOT NULL,
-  `departamento` varchar(100) NOT NULL,
-  `cargo` varchar(100) NOT NULL,
-  `correo` varchar(100) NOT NULL,
-  `telefono` varchar(100) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `rol` int(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  FOREIGN KEY (`rol`) REFERENCES permisos(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`ID`, `nombre`, `apellidos`, `departamento`, `cargo`, `correo`, `telefono`, `password`) VALUES
-(1, 'Amyra', 'Sanchez Garcia', 'TI', 'Lider', 'amyra@gamil.com', '25896314', '123456');
 
 --
 -- Índices para tablas volcadas
@@ -131,9 +91,7 @@ INSERT INTO `usuario` (`ID`, `nombre`, `apellidos`, `departamento`, `cargo`, `co
 --
 -- Indices de la tabla `eventosalajuntas`
 --
-ALTER TABLE `eventosalajuntas`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `IDUser` (`IDUser`);
+
 
 --
 -- Indices de la tabla `evidenciavehiculo`
@@ -158,19 +116,13 @@ ALTER TABLE `solicitudvehiculo`
 
 --
 -- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`ID`);
+
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `eventosalajuntas`
---
-ALTER TABLE `eventosalajuntas`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `evidenciavehiculo`
@@ -192,9 +144,7 @@ ALTER TABLE `solicitudvehiculo`
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 
 --
 -- Restricciones para tablas volcadas
@@ -202,9 +152,7 @@ ALTER TABLE `usuario`
 
 --
 -- Filtros para la tabla `eventosalajuntas`
---
-ALTER TABLE `eventosalajuntas`
-  ADD CONSTRAINT `eventosalajuntas_ibfk_1` FOREIGN KEY (`IDUser`) REFERENCES `usuario` (`ID`);
+
 
 --
 -- Filtros para la tabla `evidenciavehiculo`

@@ -6,7 +6,7 @@ if(!empty($_POST)){
 			include "conexion.php";
 			
 			$user_id=null;
-			$sql1= "select * from admin where correo=\"$_POST[uname]\" and password=\"$_POST[passcampo]\" ";
+			$sql1= "select * from usuario where correo=\"$_POST[uname]\" and password=\"$_POST[passcampo]\" ";
 			$query = $con->query($sql1);
 			while ($r=$query->fetch_array()) {
 				$user_id=$r["ID"];
