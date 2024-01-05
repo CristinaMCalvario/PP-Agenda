@@ -8,7 +8,7 @@
   
 include('../includes/conexion.php');
 
-  $SqlEventos   = ("SELECT * FROM solicitudvehiculo");
+  $SqlEventos   = ("SELECT * FROM eventvehiculo");//solicitudvehiculo
   $resulEventos = mysqli_query($conn, $SqlEventos);
 
 ?>

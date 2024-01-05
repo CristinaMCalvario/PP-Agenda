@@ -32,14 +32,6 @@
 
         mysqli_close($conn);
 
-       /* $conn = mysqli_query($con,$insert);
-
-        if ($conn) {
-            echo "sucess";
-        } else {
-            echo "error".mysqli_error();
-        }*/
-
     header("Location: ../views/calendarSala.php");
     }
    

@@ -113,7 +113,7 @@
           <div class="form-group"> 
 						<div class="col-sm-offset-2 col-sm-10">
 						  <div class="checkbox">
-							<label class="text-danger"><input type="checkbox"  name="delete"> eliminar</label>
+							<label class="text-danger"><input type="checkbox"  name="delete"> Eliminar</label>
 						  </div>
 						</div>
 					</div>

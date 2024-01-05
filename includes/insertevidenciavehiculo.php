@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){
+		session_start();
+	}
  date_default_timezone_set('America/Mexico_City');
 
 
@@ -8,11 +11,12 @@
 
         $imginicial = $_POST["imginicial"];
         $imgfinal = $_POST["imgfinal"];
+        $id_usuario = $_SESSION['idUsuario'];
     
         /*$id_usuario = $_SESSION['idUsuario'];*/
 
-        $insert = "INSERT INTO evidenciavehiculo(kilometrajeInicial, kilometrajeFinal) 
-        VALUES ('$imginicial','$imgfinal')";
+        $insert = "INSERT INTO evidenciavehiculo(kilometrajeInicial, kilometrajeFinal,IDUser) 
+        VALUES ('$imginicial','$imgfinal','$id_usuario')";
 
         if (mysqli_query($conn, $insert)) {
             echo "New record created successfully";
@@ -22,21 +26,7 @@
 
         mysqli_close($conn);
 
-       /* $conn = mysqli_query($con,$insert);
-
-        if ($conn) {
-            echo "sucess";
-        } else {
-            echo "error".mysqli_error();
-        }*/
-
     }
-   
-
-
-    
-    
-
     
     header("Location: ../views/calendarAuto.php");
 ?>

@@ -84,7 +84,7 @@
             <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
           </div>
           <div class="mb-3">
-            <label for="" class="form-label">TGA:</label>
+            <label for="" class="form-label">TAG:</label>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio"  id="tga" name="tga">
               <label class="form-check-label" for="">
